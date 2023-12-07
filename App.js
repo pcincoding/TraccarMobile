@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import Signuppage from './FrontEnd/Signuppage';
+import Login from './FrontEnd/Login'
+import Home from './FrontEnd/Home'
+import Verification from './FrontEnd/Verification';
+import Email from './FrontEnd/Email';
+import ForgetVerify from './FrontEnd/ForgetVerify';
+import Resetpassword from './FrontEnd/Resetpassword';
+import Account from './NavigationScreen/Account'
+import 'react-native-gesture-handler'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Stack = createNativeStackNavigator();
+const App = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName='Login'>
+                <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+                <Stack.Screen name="SignUp" component={Signuppage} options={{ headerShown: false }} />
+                <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+                <Stack.Screen name="Verification" component={Verification} options={{ headerShown: false }} />
+                <Stack.Screen name="Email" component={Email} options={{ headerShown: false }} />
+                <Stack.Screen name="ForgetVerify" component={ForgetVerify} options={{ headerShown: false }} />
+                <Stack.Screen name="Resetpassword" component={Resetpassword} options={{ headerShown: false }} />
+                <Stack.Screen name="Account" component={Account} options={{ headerShown: false }} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+ export default App
