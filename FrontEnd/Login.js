@@ -12,32 +12,29 @@ const Login = ({navigation}) => {
   })
   const [values,setValues] = useState();
   
-  const checkLoginItem = async() =>{
-    setValues(await AsyncStorage.getItem('LoginItem'));
+  const checkLoginItem = () =>{
     setTimeout(() => {
-    console.log('I am logged out');
+    navigation.navigate('Login');
     setValues(AsyncStorage.removeItem("LoginItem"));
-    }, 360000);
+    console.log('I am logged out');
+    }, 60000);
   }
 
   useEffect(() => {
-    checkLoginItem();
+    // checkLoginItem();
+    setValues(AsyncStorage.getItem("LoginItem"));
     if(values){
       navigation.navigate('Home');
+      checkLoginItem();
     }
-    else{
-      alert("Your token expired. Please Sign in");
-      navigation.navigate('Login');
-      
-    }
-  });
+  },[]);
   
   const loginbackend = () =>{
     if(!fdata.email || !fdata.password){
       alert('Plz fill in all the data');
     }
     else{
-      fetch('http://192.168.1.64:3000/login',{
+      fetch('http://192.168.1.68:3000/login',{
         method: 'POST',
         headers:{
           'Content-Type': 'application/json'

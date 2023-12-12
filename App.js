@@ -7,7 +7,9 @@ import Verification from './FrontEnd/Verification';
 import Email from './FrontEnd/Email';
 import ForgetVerify from './FrontEnd/ForgetVerify';
 import Resetpassword from './FrontEnd/Resetpassword';
-import Account from './NavigationScreen/Account'
+import Account from './NavigationScreen/AccSetScreens/Account';
+import Map from './NavigationScreen/Map';
+import Device from './NavigationScreen/AccSetScreens/Device';
 import 'react-native-gesture-handler'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -24,6 +26,8 @@ const App = () => {
                 <Stack.Screen name="ForgetVerify" component={ForgetVerify} options={{ headerShown: false }} />
                 <Stack.Screen name="Resetpassword" component={Resetpassword} options={{ headerShown: false }} />
                 <Stack.Screen name="Account" component={Account} options={{ headerShown: false }} />
+                <Stack.Screen name="Map" component={Map} options={{ headerShown: false }} />
+                <Stack.Screen name="Device" component={Device} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     )

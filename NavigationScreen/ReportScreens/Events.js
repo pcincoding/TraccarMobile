@@ -2,22 +2,22 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { Picker } from '@react-native-picker/picker';
 import { Table, Row, Rows } from 'react-native-table-component'
-// import DrawerNav from './DrawerNav';
 
-const Report = ({navigation}) => {
-  const [selectdevice, setSelectdevice] = useState("Deivces");
-  const [selectGroup, setSelectGroup] = useState("Groups");
-  const [selectPeriod, setSelectPeriod] = useState("Today");
-  const tableHead =  ['Device', 'Fix Time', 'Type'];
+const Events = ({navigation}) => {
+  const [selectdevice, setSelectdevice] = useState();
+  const [selectEventTypes, setSelectEventTypes] = useState();
+  const [selectPeriod, setSelectPeriod] = useState();
+  const [selectColumns, setSelectColumns] = useState();
+  const tableHead =  ['Fix Time', 'Type','Data'];
   const tableData = [['1', '2', '3'],['a', 'b', 'c'],['1', '2', '3']];
 
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-        <Image source={require('../assets/hamberger.png')} style={{ width: 14, height: 14, marginHorizontal: 15 }} />
+        <Image source={require('../../assets/hamberger.png')} style={{ width: 14, height: 14, marginHorizontal: 15 }} />
         </TouchableOpacity>
-        <Text style={{ fontSize: 20, marginLeft: 6 }}>Reports / Combined</Text>
+        <Text style={{ fontSize: 20, marginLeft: 6 }}>Reports / Events</Text>
       </View>
       {/* <DrawerNav /> */}
       
@@ -25,11 +25,6 @@ const Report = ({navigation}) => {
         <View style={styles.dropdown}>
           <Picker selectedValue={selectdevice} onValueChange={(item) => setSelectdevice(item)} style={styles.devices}>
             <Picker.Item label='Devices' value="nepali" />
-          </Picker>
-        </View>
-        <View style={styles.dropdown}>
-          <Picker selectedValue={selectGroup} onValueChange={(item) => setSelectGroup(item)} style={styles.devices}>
-            <Picker.Item label='Nepali' value="nepali" />
           </Picker>
         </View>
         <View style={styles.dropdown}>
@@ -41,6 +36,16 @@ const Report = ({navigation}) => {
             <Picker.Item label='This Month' value="This Month" />
             <Picker.Item label='Previous Month' value="Previous Month" />
             <Picker.Item label='Custom' value="Custom" />
+          </Picker>
+        </View>
+        <View style={styles.dropdown}>
+          <Picker selectedValue={selectEventTypes} onValueChange={(item) => setSelectEventTypes(item)} style={styles.devices}>
+            <Picker.Item label='Nepali' value="nepali" />
+          </Picker>
+        </View>
+        <View style={styles.dropdown}>
+          <Picker selectedValue={selectColumns} onValueChange={(item) => setSelectColumns(item)} style={styles.devices}>
+            <Picker.Item label='Nepali' value="nepali" />
           </Picker>
         </View>
         <TouchableOpacity style={styles.btn}><Text style={styles.btntext}>SHOW</Text></TouchableOpacity>
@@ -55,7 +60,7 @@ const Report = ({navigation}) => {
   )
 }
 
-export default Report
+export default Events
 
 const styles = StyleSheet.create({
   container: {

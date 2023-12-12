@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Collapsible from 'react-native-collapsible'
 import { Picker } from '@react-native-picker/picker'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-const base = require('base-64');
 
 const Account = ({ navigation }) => {
   // for required
@@ -60,7 +59,7 @@ const Account = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
       <TouchableOpacity onPress={()=>navigation.toggleDrawer()}>
-        <Image source={require('../assets/hamberger.png')} style={{ width: 14, height: 14, marginHorizontal: 15 }} />
+        <Image source={require('../../assets/hamberger.png')} style={{ width: 14, height: 14, marginHorizontal: 15 }} />
         </TouchableOpacity>
         <Text style={{ fontSize: 20, marginLeft: 6 }}>Settings / Account</Text>
       </View>

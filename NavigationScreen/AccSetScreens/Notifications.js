@@ -4,9 +4,8 @@ import Collapsible from 'react-native-collapsible'
 import { Picker } from '@react-native-picker/picker'
 import CheckBox from 'expo-checkbox'
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { DrawerActions } from '@react-navigation/native'
 
-const Setting = ({navigation}) => {
+const Notifications = ({navigation}) => {
 
   // for collapsing of accordion
   const [collapsed1, setCollapsed1] = useState(false);
@@ -92,10 +91,10 @@ const Setting = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={()=>navigation.dispatch(DrawerActions.toggleDrawer())}>
-        <Image source={require('../assets/hamberger.png')} style={{ width: 14, height: 14, marginHorizontal: 15 }} />
+        <TouchableOpacity onPress={()=>navigation.toggleDrawer()}>
+        <Image source={require('../../assets/hamberger.png')} style={{ width: 14, height: 14, marginHorizontal: 15 }} />
         </TouchableOpacity>
-          <Text style={{ fontSize: 20, marginLeft: 6 }}>Settings / Preferences</Text>
+          <Text style={{ fontSize: 20, marginLeft: 6 }}>Settings / Notifications</Text>
       </View>
       <ScrollView>
         <View style={styles.accordionContainer}>
@@ -357,7 +356,7 @@ const Setting = ({navigation}) => {
   )
 }
 
-export default Setting
+export default Notifications
 
 const styles = StyleSheet.create({
   container: {

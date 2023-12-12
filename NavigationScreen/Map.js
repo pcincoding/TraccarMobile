@@ -4,7 +4,7 @@ import MapView, {Marker} from 'react-native-maps'
 import * as Location from 'expo-location'
 import Tooltip from 'react-native-walkthrough-tooltip'
 
-const Map = () => {
+const Map = ({navigation}) => {
   const [mapRegion, setMapRegion] = useState({
     latitude: 28.39487,
     longitude: 84.124008,
@@ -29,9 +29,6 @@ const Map = () => {
   useEffect(() => {
     userLocation();
   }, [])
-  // const register = () =>{
-
-  // }
   
   return (
     <View style={styles.container}>
@@ -45,7 +42,7 @@ const Map = () => {
           <View><Text>Register Your Device</Text></View>
         } onClose={()=>setShowtip(false)}
         >
-        <View><Text style={{ fontSize: 30 }} >+</Text></View>
+        <View><Text onPress={()=>navigation.navigate('Device')} style={{ fontSize: 30 }} >+</Text></View>
         </Tooltip>
       </View>
       <View style={styles.mapcontainer}>
